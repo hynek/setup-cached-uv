@@ -11,9 +11,15 @@ runs:
   using: composite
 
   steps:
-  - name: Install uv
+  - name: Install uv on Linux or macOS
     run: curl -LsSf https://astral.sh/uv/install.sh | bash
     shell: bash
+    if: runner.os != 'Windows'
+
+  - name: Install uv on Windows
+    run: irm https://astral.sh/uv/install.ps1 | iex
+    shell: pwsh
+    if: runner.os == 'Windows'
 
   - name: Find uv cache
     run: echo "UV_CACHE=$(uv cache dir)" >>$GITHUB_ENV
