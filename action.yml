@@ -14,7 +14,7 @@ runs:
   - name: Install uv
     run: >
       curl -LsSf https://astral.sh/uv/install.sh \
-        | bash --no-modify-path --verbose
+        | bash -s --no-modify-path --verbose
     shell: bash
 
   - name: Find uv cache
