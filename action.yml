@@ -1,5 +1,5 @@
 ---
-name: Setup uv and handle its cache
+name: Setup uv and Handle Its Cache
 description: Downloads and installs the Python uv packaging manager and handles its cache.
 author: Hynek Schlawack
 branding:
