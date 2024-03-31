@@ -1,0 +1,23 @@
+---
+name: CI
+
+on:
+  push:
+      branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+env:
+  FORCE_COLOR: "1" # Make tools pretty.
+
+jobs:
+  check-install:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+          with:
+            path: action
+
+        - uses: ./action
+
+        - run: uv --version
