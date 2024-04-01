@@ -12,7 +12,11 @@ env:
 
 jobs:
   check-install:
-    runs-on: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.runs-on }}
+    strategy:
+      matrix:
+        runs-on: [ubuntu-latest, macos-latest, windows-latest]
+
     steps:
       - uses: actions/checkout@v4
         with:
