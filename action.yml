@@ -6,6 +6,16 @@ branding:
   icon: package
   color: purple
 
+inputs:
+  cache-suffix:
+    description: A suffix to append to the cache key.
+    required: false
+    default: ""
+
+  cache-dependency-path:
+    description: Hash this file and use it as part of the cache key.
+    required: false
+    default: ""
 
 runs:
   using: composite
@@ -25,8 +35,14 @@ runs:
     run: echo "UV_CACHE=$(uv cache dir)" >>$GITHUB_ENV
     shell: bash
 
+  - name: Compute cache suffix
+    run: |
+      echo "CACHE_SUFFIX=-$(cat ${{ inputs.cache-dependency-path }} | sha256sum)" >>$GITHUB_ENV
+    shell: bash
+    if: inputs.cache-dependency-path != ""
+
   - name: Load uv cache
     uses: actions/cache@v4
     with:
-      path: ${{ env.UV_CACHE }}
+      path: ${{ env.UV_CACHE }}${{ env.CACHE_SUFFIX }}
       key: ${{ runner.os }}-uv
