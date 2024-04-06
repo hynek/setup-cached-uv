@@ -43,4 +43,6 @@ jobs:
           cache-suffix: -hash-deps-path-job
           cache-dependency-path: "**/LICENSE"
 
-      - run: uv pip install attrs
+      - run: |
+          uv venv
+          uv pip install attrs
