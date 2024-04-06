@@ -35,9 +35,9 @@ runs:
     run: echo "UV_CACHE=$(uv cache dir)" >>$GITHUB_ENV
     shell: bash
 
-  - name: Compute cache suffix
+  - name: Compute cache suffix by hashing ${{ inputs.cache-dependency-path }}
     run: |
-      echo "CACHE_SUFFIX=-$(cat ${{ inputs.cache-dependency-path }} | sha256sum | cut -f1 -d\ )" >>$GITHUB_ENV
+      echo "HASH_CACHE_SUFFIX=-$(cat ${{ inputs.cache-dependency-path }} | sha256sum | cut -f1 -d\ )" >>$GITHUB_ENV
     shell: bash
     if: inputs.cache-dependency-path != ''
 
@@ -45,4 +45,4 @@ runs:
     uses: actions/cache@v4
     with:
       path: ${{ env.UV_CACHE }}
-      key: uv-${{ runner.os }}-${{ env.CACHE_SUFFIX }}
+      key: uv-${{ runner.os }}${{ inputs.cache-suffix }}${{ env.HASH_CACHE_SUFFIX }}
