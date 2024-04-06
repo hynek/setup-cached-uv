@@ -41,6 +41,6 @@ jobs:
       - uses: ./action
         with:
           cache-suffix: -hash-deps-path-job
-          cache-dependency-path: action/LICENSE
+          cache-dependency-path: "**/LICENSE"
 
       - run: uv --version
