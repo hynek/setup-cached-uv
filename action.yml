@@ -37,7 +37,7 @@ runs:
 
   - name: Compute cache suffix
     run: |
-      echo "CACHE_SUFFIX=-$(cat ${{ inputs.cache-dependency-path }} | sha256sum)" >>$GITHUB_ENV
+      echo "CACHE_SUFFIX=-$(cat ${{ inputs.cache-dependency-path }} | sha256sum | cut -f1 -d\ )" >>$GITHUB_ENV
     shell: bash
     if: inputs.cache-dependency-path != ''
 
