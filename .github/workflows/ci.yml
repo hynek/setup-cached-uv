@@ -43,4 +43,4 @@ jobs:
           cache-suffix: -hash-deps-path-job
           cache-dependency-path: "**/LICENSE"
 
-      - run: uv --version
+      - run: uv pip install attrs
