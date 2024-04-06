@@ -40,7 +40,7 @@ jobs:
 
       - uses: ./action
         with:
-          cache-suffix: hash-deps-path
+          cache-suffix: -hash-deps-path-job
           cache-dependency-path: action/LICENSE
 
       - run: uv --version
