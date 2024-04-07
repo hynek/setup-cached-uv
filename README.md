@@ -31,13 +31,13 @@ Note that the operating system of the runner is automatically added to the cache
 
 ### `cache-suffix`
 
-A static string suffix to add to the cache name.
+A static string to append to the cache name.
 This could, for example, be the name of the job.
 
 
 ### `cache-dependency-path`
 
-A path to a file whose contents is hashed and added to the cache name.
+A path to a file whose contents is hashed and appended to the cache name.
 May contain glob-style patterns and match more than one file.
 Internally, the GitHub Actions function `hashFiles` is used to hash the passed path.
 
