@@ -21,7 +21,7 @@ jobs:
 > [!CAUTION]
 > It’s important to understand that once a cache of a certain name has been created, it will be used in all subsequent jobs within the same workflow and will **not** be updated.
 >
-> This means that if you create the cache in the first job that installs only, say, *build* and *twine*, and later load the cache again and install more packages, those packages will not be cached for the next run.
+> This means that if you create the cache in the first job that installs only, say, *build* and *twine*, and later load the cache again and install more packages, those packages will **not** be cached for the next run.
 
 To work around this, *setup-cached-uv* allows you to add two types of suffixes as inputs to the cache name.
 This way you can have multiple caches per workflow that contain different sets of packages.
