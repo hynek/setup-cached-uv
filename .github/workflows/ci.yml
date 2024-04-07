@@ -25,3 +25,24 @@ jobs:
       - uses: ./action
 
       - run: uv --version
+
+
+  check-hash-deps-path:
+    runs-on: ${{ matrix.runs-on }}
+    strategy:
+      matrix:
+        runs-on: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: action
+
+      - uses: ./action
+        with:
+          cache-suffix: -hash-deps-path-job
+          cache-dependency-path: "**/LICENSE"
+
+      - run: |
+          uv venv
+          uv pip install attrs
