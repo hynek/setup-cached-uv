@@ -36,8 +36,10 @@ runs:
     shell: bash
 
   - name: Compute cache suffix by hashing ${{ inputs.cache-dependency-path }}
-    run: |
-      echo "HASH_CACHE_SUFFIX=-${{ hashFiles(inputs.cache-dependency-path) }}" >>$GITHUB_ENV
+    run: >
+      echo
+      "HASH_CACHE_SUFFIX=-${{ hashFiles(inputs.cache-dependency-path) }}"
+      >>$GITHUB_ENV
     shell: bash
     if: inputs.cache-dependency-path != ''
 
