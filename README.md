@@ -26,13 +26,13 @@ jobs:
 To work around this, *setup-cached-uv* allows you to add two types of suffixes as inputs to the cache name.
 This way you can have multiple caches per workflow that contain different sets of packages.
 
+Note that the operating system of the runner is automatically added to the cache name – meaning, without adding suffixes, the names of the cache are `uv-Linux`, `uv-macOS`, and `uv-Windows`.
+
 
 ### `cache-suffix`
 
 A static string suffix to add to the cache name.
 This could, for example, be the name of the job.
-
-Note that the operating system of the runner is automatically added to the cache name.
 
 
 ### `cache-dependency-path`
