@@ -32,7 +32,7 @@ This way you can have multiple caches per workflow that contain different sets o
 A static string suffix to add to the cache name.
 This could, for example, be the name of the job.
 
-Npte that the operating system of the runner is automatically added to the cache name.
+Note that the operating system of the runner is automatically added to the cache name.
 
 
 ### `cache-dependency-path`
