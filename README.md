@@ -37,6 +37,17 @@ Note that the operating system of the runner is automatically added to the cache
 A static string to append to the cache name.
 This could, for example, be the name of the job.
 
+You can also use it bust the cache weekly by setting it to the current week number:
+
+```yaml
+      - run: echo WEEK=$(date +%V) >>$GITHUB_ENV
+        shell: bash
+
+      - uses: ./action
+        with:
+          cache-suffix: -${{ env.WEEK }}
+```
+
 
 ### `cache-dependency-path`
 
