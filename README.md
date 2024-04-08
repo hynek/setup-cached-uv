@@ -16,7 +16,7 @@ jobs:
 ```
 
 
-## Optional Inputs
+## Cache Management
 
 > [!CAUTION]
 > It’s important to understand that once a cache of a certain name has been created, it will be used in all subsequent jobs within the same workflow and will **not** be updated.
@@ -32,7 +32,9 @@ This way you can have multiple caches per workflow that contain different sets o
 Note that the operating system of the runner is automatically added to the cache name – meaning, without adding suffixes, the names of the caches are `uv-Linux`, `uv-macOS`, and `uv-Windows`.
 
 
-### `cache-suffix`
+### Optional Inputs
+
+#### `cache-suffix`
 
 A static string to append to the cache name.
 This could, for example, be the name of the job, or the current week number to bust the cache weekly:
@@ -49,13 +51,13 @@ This could, for example, be the name of the job, or the current week number to b
 ```
 
 
-### `cache-dependency-path`
+#### `cache-dependency-path`
 
 A path to a file whose contents is hashed and appended to the cache name.
 May contain glob-style patterns and match more than one file.
 Internally, the GitHub Actions function `hashFiles` is used to hash the passed path.
 
-Using this with a `requirements.txt` file is the most efficient use of this action since it automatically invalidates the cache if the file changes.
+Using this with a fully pinned `requirements.txt` file is the most efficient use of this action because it automatically invalidates the cache.
 
 
 ### Examples
