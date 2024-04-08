@@ -26,7 +26,6 @@ jobs:
 > A cache also [doesn’t expire as long as it has been used in the last 7 days](https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy).
 > That does **not** mean that you’re getting obsolete package versions – just that they’re not cached.
 
-
 To work around this, *setup-cached-uv* allows you to add two types of suffixes as inputs to the cache name.
 This way you can have multiple caches per workflow that contain different sets of packages.
 
