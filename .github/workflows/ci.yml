@@ -22,7 +22,11 @@ jobs:
         with:
           path: action
 
+      - run: echo WEEK=$(date +%V) >>$GITHUB_ENV
+
       - uses: ./action
+        with:
+          cache-suffix: -{{ env.WEEK }}
 
       - run: uv --version
 
