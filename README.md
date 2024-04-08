@@ -2,6 +2,7 @@
 
 > [!WARNING]
 > This action is still semi-experimental.
+> I’m happy to [hear feedback](https://github.com/hynek/setup-cached-uv/issues), though!
 
 This action will download and install the latest version of [*uv*](https://github.com/astral-sh/uv) using the official installer and handle its package cache for you.
 
