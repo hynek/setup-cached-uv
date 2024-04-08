@@ -26,7 +26,7 @@ jobs:
 
       - uses: ./action
         with:
-          cache-suffix: -{{ env.WEEK }}
+          cache-suffix: -${{ env.WEEK }}
 
       - run: uv --version
 
