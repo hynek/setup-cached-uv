@@ -23,6 +23,7 @@ jobs:
           path: action
 
       - run: echo WEEK=$(date +%V) >>$GITHUB_ENV
+        shell: bash
 
       - uses: ./action
         with:
