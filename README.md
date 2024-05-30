@@ -45,7 +45,7 @@ This could, for example, be the name of the job, or the current week number to b
       - run: echo WEEK=$(date +%V) >>$GITHUB_ENV
         shell: bash
 
-      - uses: ./action
+      - uses: hynek/setup-cached-uv@v1
         with:
           cache-suffix: -tests-${{ env.WEEK }}
       # ...
@@ -60,10 +60,25 @@ Internally, the GitHub Actions function `hashFiles` is used to hash the passed p
 
 Using this with a fully pinned `requirements.txt` file is the most efficient use of this action because it automatically invalidates the cache.
 
+#### `use-cache`
+
+This defaults to `true`, but can be used to disable the cache, since GitHub's
+default caching speed is slower than uv in many cases. For example, if you have
+dependencies that don't provide prebuilt PyPy wheels, you can only cache that
+run like this:
+
+```yaml
+      # ...
+      - uses: hynek/setup-cached-uv@v1
+        with:
+          use-cache: ${{ startsWith(matrix.python-version, 'pypy') }}
+      # ...
+```
+
 
 ### Examples
 
-Check out [our CI](.github/workflows/ci.yml) to see both inputs in action.
+Check out [our CI](.github/workflows/ci.yml) to see some inputs in action.
 
 
 ## License
