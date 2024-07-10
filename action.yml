@@ -17,7 +17,7 @@ inputs:
     required: false
     default: ""
 
-  use-cache:
+  use-cache-if:
     description: Save the cache.
     required: false
     default: true
@@ -46,11 +46,11 @@ runs:
       "HASH_CACHE_SUFFIX=-${{ hashFiles(inputs.cache-dependency-path) }}"
       >>$GITHUB_ENV
     shell: bash
-    if: inputs.cache-dependency-path != '' && inputs.use-cache == 'true'
+    if: inputs.cache-dependency-path != '' && inputs.use-cache-if == 'true'
 
   - name: Load uv cache
     uses: actions/cache@v4
-    if: inputs.use-cache == 'true'
+    if: inputs.use-cache-if == 'true'
     with:
       path: ${{ env.UV_CACHE }}
       key: uv-${{ runner.os }}${{ inputs.cache-suffix }}${{ env.HASH_CACHE_SUFFIX }}

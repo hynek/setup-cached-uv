@@ -60,18 +60,17 @@ Internally, the GitHub Actions function `hashFiles` is used to hash the passed p
 
 Using this with a fully pinned `requirements.txt` file is the most efficient use of this action because it automatically invalidates the cache.
 
-#### `use-cache`
 
-This defaults to `true`, but can be used to disable the cache, since GitHub's
-default caching speed is slower than uv in many cases. For example, if you have
-dependencies that don't provide prebuilt PyPy wheels, you can only cache that
-run like this:
+#### `if-use-cache`
+
+This defaults to `true`, but can be used to disable the cache, since GitHub's default caching speed is slower than uv in many cases.
+For example, if you have dependencies that don't provide prebuilt PyPy wheels, you can only cache that run like this:
 
 ```yaml
       # ...
       - uses: hynek/setup-cached-uv@v1
         with:
-          use-cache: ${{ startsWith(matrix.python-version, 'pypy') }}
+          if-use-cache: ${{ startsWith(matrix.python-version, 'pypy') }}
       # ...
 ```
 
