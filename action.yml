@@ -61,7 +61,7 @@ runs:
       key: uv-${{ runner.os }}${{ inputs.cache-suffix }}${{ env.HASH_CACHE_SUFFIX }}
 
   - name: Schedule cache pruning
-    uses: gacts/run-and-post-run@v1
+    uses: gacts/run-and-post-run@4683764dd706df847f57b9bed39d08164bcd2690
     if: inputs.use-cache-if == 'true'
     with:
       post: uv cache prune --ci
