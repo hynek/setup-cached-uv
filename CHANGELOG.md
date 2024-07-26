@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Fixed
 
 - The cache directory couldn't actually be... cached ...due to path restrictions (anymore?) so we moved it into `/tmp/` and made it configurable using the new action input `uv-cache-dir`.
+  [#8](https://github.com/hynek/setup-cached-uv/pull/8)
 
 
 ## [1.2.0](https://github.com/hynek/setup-cached-uv/compare/v1.1.0...v1.2.0) - 2024-07-22
