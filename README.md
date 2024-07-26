@@ -11,7 +11,7 @@ jobs:
   tests:
     runs-on: ubuntu-latest  # or macOS, or Windows
     steps:
-      - uses: hynek/setup-cached-uv@v1
+      - uses: hynek/setup-cached-uv@v2
 
       - run: uv ...
 ```
@@ -80,7 +80,7 @@ For example, if you have dependencies that don’t provide prebuilt PyPy wheels,
 
 ```yaml
       # ...
-      - uses: hynek/setup-cached-uv@v1
+      - uses: hynek/setup-cached-uv@v2
         with:
           if-use-cache: ${{ startsWith(matrix.python-version, 'pypy') }}
       # ...
