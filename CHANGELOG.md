@@ -7,6 +7,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [UNRELEASED](https://github.com/hynek/setup-cached-uv/compare/v1.3.0...main)
 
+### Added
+
+- Automatic cache pruning.
+  If caching is active, we now automatically run `uv cache prune --ci` that shrinks the cache directory to only downloaded files.
+  This make the cache smaller and therefore faster to save and restore.
+  [#9](https://github.com/hynek/setup-cached-uv/pull/9)
+
 
 ## [1.3.0](https://github.com/hynek/setup-cached-uv/compare/v1.2.0...v1.3.0) - 2024-07-26
 
