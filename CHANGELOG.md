@@ -14,6 +14,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
   This make the cache smaller and therefore faster to save and restore.
   [#9](https://github.com/hynek/setup-cached-uv/pull/9)
 
+- The current calendar week is now added to the cache key by default.
+  This means that the cache is refreshed weekly.
+
+  You can tweak the behavior using the `cache-date-suffix` input.
+  Setting it to `""` disables this feature, any other value is interpreted as an argument to the `date` CLI command.
+  [#11](https://github.com/hynek/setup-cached-uv/pull/11)
+
 
 ### Changed
 
