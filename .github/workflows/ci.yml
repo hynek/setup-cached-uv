@@ -45,7 +45,7 @@ jobs:
 
       - uses: ./action
         with:
-          cache-suffix: -hash-deps-path-job
+          cache-suffix: -LE-SUFFIX
           cache-dependency-path: "**/LICENSE"
 
       - run: |

@@ -15,6 +15,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
   [#9](https://github.com/hynek/setup-cached-uv/pull/9)
 
 
+### Changed
+
+- The name of the workflow and of the current job are now part of the cache key.
+  While this means that you can't share a cache between jobs, this should be only a minor inconvenience in practice and make it do the right thing in the vast majority of cases.
+
+  If this is a problem for you, please open an issue and tell us about your use-case.
+  We can always add an option to set the whole key explicitly.
+  [#10](https://github.com/hynek/setup-cached-uv/pull/10)
+
+
 ## [1.3.0](https://github.com/hynek/setup-cached-uv/compare/v1.2.0...v1.3.0) - 2024-07-26
 
 ### Fixed
