@@ -29,7 +29,9 @@ jobs:
         with:
           cache-date-suffix: ""
 
-      - run: uv --version
+      - run: |
+          uv venv
+          uv pip install attrs
 
 
   check-hash-deps-path:
