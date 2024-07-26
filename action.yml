@@ -59,3 +59,9 @@ runs:
     with:
       path: ${{ env.UV_CACHE_DIR }}
       key: uv-${{ runner.os }}${{ inputs.cache-suffix }}${{ env.HASH_CACHE_SUFFIX }}
+
+  - name: Schedule cache pruning
+    uses: gacts/run-and-post-run@v1
+    if: inputs.use-cache-if == 'true'
+    with:
+      post: uv cache prune --ci
