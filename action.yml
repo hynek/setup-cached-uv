@@ -22,7 +22,7 @@ inputs:
     required: false
     default: true
 
-  uv-cache-dir:
+  uv-cache-path:
     description: Where to put uv's cache directory.
     required: false
     default: /tmp/scu-uv-cache
@@ -41,8 +41,8 @@ runs:
     shell: pwsh
     if: runner.os == 'Windows'
 
-  - name: Set uv cache directory to ${{  inputs.uv-cache-dir }}
-    run: echo "UV_CACHE_DIR=${{ inputs.uv-cache-dir }}" >>$GITHUB_ENV
+  - name: Set uv cache directory to ${{  inputs.uv-cache-path }}
+    run: echo "UV_CACHE_DIR=${{ inputs.uv-cache-path }}" >>$GITHUB_ENV
     shell: bash
 
   - name: Compute cache suffix by hashing ${{ inputs.cache-dependency-path }}
