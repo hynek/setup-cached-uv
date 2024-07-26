@@ -16,8 +16,6 @@ jobs:
       - run: uv ...
 ```
 
-Once you're done installing packages with *uv*, we recommend running `uv cache prune --ci` to shrink the cache to downloaded files, otherwise it can get very big and cache restoration becomes slow.
-
 
 ## Cache Management
 
