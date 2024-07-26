@@ -42,7 +42,7 @@ This keeps the files that have been downloaded, but removes any temporary files 
 #### `cache-suffix`
 
 A static string to append to the cache key.
-This could be the Python version if the dependencies differ significantly between versions.
+This could, for example, be the Python version if the dependencies differ significantly between versions.
 
 
 #### `cache-date-suffix`
