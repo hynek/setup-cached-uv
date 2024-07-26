@@ -11,7 +11,7 @@ env:
   FORCE_COLOR: "1" # Make tools pretty.
 
 jobs:
-  check-install:
+  check-install-no-date-suffix:
     runs-on: ${{ matrix.runs-on }}
     strategy:
       matrix:
@@ -22,14 +22,13 @@ jobs:
         with:
           path: action
 
-      - run: echo WEEK=$(date +%V) >>$GITHUB_ENV
-        shell: bash
-
       - uses: ./action
         with:
-          cache-suffix: -${{ env.WEEK }}
+          cache-date-suffix: ""
 
-      - run: uv --version
+      - run: |
+          uv venv
+          uv pip install attrs
 
 
   check-hash-deps-path:
