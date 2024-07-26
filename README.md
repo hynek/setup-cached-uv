@@ -52,6 +52,16 @@ This could, for example, be the current week number to refresh the cache weekly:
 ```
 
 
+#### `cache-date-suffix`
+
+If not empty, it's interpreted as an argument to [`date`](https://man7.org/linux/man-pages/man1/date.1.html) and the output is appended to the cache key – presumable for cache-busting purposes.
+
+The default is `+%V` which is the calendar week number.
+This means that the cache is refreshed weekly.
+
+You may want to set this to `""` if you aleady use `cache-dependency-path` to invalidate the cache.
+
+
 #### `cache-dependency-path`
 
 A path to a file whose contents is hashed and appended to the cache name.
@@ -59,6 +69,8 @@ May contain glob-style patterns and match more than one file.
 Internally, the GitHub Actions function `hashFiles` is used to hash the passed path.
 
 Using this with a fully pinned `requirements.txt` file is the most efficient use of this action because it automatically invalidates the cache.
+
+You may want to set `cache-date-suffix` to `""` if you use this input.
 
 
 #### `uv-cache-path`
