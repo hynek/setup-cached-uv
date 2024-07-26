@@ -70,7 +70,7 @@ You can change it to elsewhere using this input, but make sure, that [*actions/c
 
 #### `if-use-cache`
 
-This defaults to `true`, but can be used to disable the cache, since GitHub's default caching speed is slower than uv in many cases.
+This defaults to `true`, but can be used to disable the cache, since GitHub's default caching speed can be slower than an uncached *uv*.
 For example, if you have dependencies that don't provide prebuilt PyPy wheels, you can only cache that run like this:
 
 ```yaml
