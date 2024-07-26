@@ -65,7 +65,7 @@ Using this with a fully pinned `requirements.txt` file is the most efficient use
 
 The path to *uv*'s cache.
 Due to path restrictions, it's impossible to cache the default path, so we moved it to a path beneath `/tmp`.
-You can change it to elsewhere using this input, but make sure, that [*actions/cache*](https://github.com/actions/cache) can find it.
+You can change it to elsewhere using this input, but make sure that [*actions/cache*](https://github.com/actions/cache) can find it.
 
 
 #### `if-use-cache`
