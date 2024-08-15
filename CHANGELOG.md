@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [UNRELEASED](https://github.com/hynek/setup-cached-uv/compare/v2.0.0...main)
 
+### Changed
+
+- When installing on Linux and macOS, it is now enforced to use TLS 1.2 to protect against downgrade attacks.
+  [#14](https://github.com/hynek/setup-cached-uv/pull/14)
+
 
 ## [2.0.0](https://github.com/hynek/setup-cached-uv/compare/v1.3.0...v2.0.0) - 2024-07-26
 

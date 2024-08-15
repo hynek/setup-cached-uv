@@ -37,7 +37,15 @@ runs:
 
   steps:
   - name: Install uv on Linux or macOS
-    run: curl -LsSf https://astral.sh/uv/install.sh | bash
+    run: >
+      curl
+      --location
+      --silent
+      --show-error
+      --fail
+      --proto '=https'
+      --tlsv1.2
+      https://astral.sh/uv/install.sh | bash
     shell: bash
     if: runner.os != 'Windows'
 
