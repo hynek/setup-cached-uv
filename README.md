@@ -1,8 +1,8 @@
 # Setup *uv* and Handle Its Cache
 
-> [!WARNING]
-> This action is still semi-experimental.
-> I’m happy to [hear feedback](https://github.com/hynek/setup-cached-uv/issues), though!
+> [!NOTE]
+> Given that *uv* is still fairly new and quickly evolving, this action is still semi-experimental.
+> It's already used by high-profile projects and I’m happy to [hear feedback](https://github.com/hynek/setup-cached-uv/issues), though!
 
 This action will download and install the latest version of [*uv*](https://github.com/astral-sh/uv) using the official installer and handle its package cache for you.
 
@@ -39,6 +39,17 @@ This keeps the files that have been downloaded, but removes any temporary files 
 
 ### Optional Inputs
 
+#### `cache-dependency-path`
+
+A path to a file whose contents is hashed and appended to the cache name.
+May contain glob-style patterns and match more than one file.
+Internally, the GitHub Actions function [`hashFiles`](https://docs.github.com/en/actions/learn-github-actions/expressions#hashfiles) is used to hash the passed path.
+
+Using this with a fully pinned [`uv.lock`](https://docs.astral.sh/uv/concepts/projects/) or `requirements.txt` file is the most efficient use of this action because it automatically invalidates the cache when your dependencies or their versions change.
+
+You may want to set `cache-date-suffix` to `""` if you use this input.
+
+
 #### `cache-suffix`
 
 A static string to append to the cache key.
@@ -53,17 +64,6 @@ The default is `+%V` which is the calendar week number.
 This means that the cache is refreshed weekly.
 
 You may want to set this to `""` if you already use `cache-dependency-path` to invalidate the cache.
-
-
-#### `cache-dependency-path`
-
-A path to a file whose contents is hashed and appended to the cache name.
-May contain glob-style patterns and match more than one file.
-Internally, the GitHub Actions function [`hashFiles`](https://docs.github.com/en/actions/learn-github-actions/expressions#hashfiles) is used to hash the passed path.
-
-Using this with a fully pinned `requirements.txt` file is the most efficient use of this action because it automatically invalidates the cache.
-
-You may want to set `cache-date-suffix` to `""` if you use this input.
 
 
 #### `uv-cache-path`
