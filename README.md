@@ -1,12 +1,7 @@
 # Setup *uv* and Handle Its Cache
 
 > [!NOTE]
-> Given that *uv* is still fairly new and quickly evolving, this action is still semi-experimental.
-> It's already used by [high-profile projects](https://github.com/hynek/setup-cached-uv/network/dependents) and I’m happy to [hear feedback](https://github.com/hynek/setup-cached-uv/issues), though!
->
-> ---
->
-> Also note that there's now an official [*astral-sh/setup-uv*](https://github.com/astral-sh/setup-uv) action.
+> Note that there's now an official [*astral-sh/setup-uv*](https://github.com/astral-sh/setup-uv) action.
 
 This action will download and install the latest version of [*uv*](https://github.com/astral-sh/uv) using the official installer and handle its package cache for you.
 
