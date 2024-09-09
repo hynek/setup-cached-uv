@@ -60,7 +60,7 @@ runs:
 
   - name: Install uv on Windows
     run: |
-      if (${{ inputs.uv-cache-path }} -eq "NOT_SET") {
+      if ("${{ inputs.uv-cache-path }}" -eq "NOT_SET") {
         $UV_CACHE_DIR = "D:\a\_temp\scu-uv-cache"
       } else {
         $UV_CACHE_DIR = "${{ inputs.uv-cache-path }}"
