@@ -44,8 +44,7 @@ runs:
         UV_CACHE_DIR="${{ inputs.uv-cache-path }}"
       fi
 
-      echo "UV_CACHE_DIR=\"$UV_CACHE_DIR\"" >>$GITHUB_ENV
-      echo "uv cache dir is $UV_CACHE_DIR"
+      echo "UV_CACHE_DIR=$UV_CACHE_DIR" >>$GITHUB_ENV
 
       curl \
         --location \
@@ -66,12 +65,15 @@ runs:
         $UV_CACHE_DIR = "${{ inputs.uv-cache-path }}"
       }
 
-      echo "UV_CACHE_DIR=${{ inputs.uv-cache-path }}" >> $env:GITHUB_ENV
-      Write-Output "uv cache dir is $UV_CACHE_DIR"
+      echo "UV_CACHE_DIR=$UV_CACHE_DIR" >> $env:GITHUB_ENV
 
       irm https://astral.sh/uv/install.ps1 | iex
     shell: pwsh
     if: runner.os == 'Windows'
+
+  - name: Check cache dir
+    shell: bash
+    run: echo "uv cache dir is $(uv cache dir)"
 
   - name: Compute cache key suffix by hashing ${{ inputs.cache-dependency-path }}
     run: >
