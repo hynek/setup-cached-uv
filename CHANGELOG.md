@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased](https://github.com/hynek/setup-cached-uv/compare/v2.1.0...main)
 
+### Changed
+
+- The default cache path for Windows is now `D:\a\_temp\scu-uv-cache`.
+
 
 ## [2.1.0](https://github.com/hynek/setup-cached-uv/compare/v2.0.0...v2.1.0) - 2024-08-15
 

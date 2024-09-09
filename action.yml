@@ -30,33 +30,43 @@ inputs:
   uv-cache-path:
     description: Where to put uv's cache directory.
     required: false
-    default: /tmp/scu-uv-cache
+    default: NOT_SET
 
 runs:
   using: composite
 
   steps:
   - name: Install uv on Linux or macOS
-    run: >
-      curl
-      --location
-      --silent
-      --show-error
-      --fail
-      --proto '=https'
-      --tlsv1.2
-      https://astral.sh/uv/install.sh | bash
+    run: |
+      curl \
+        --location \
+        --silent \
+        --show-error \
+        --fail \
+        --proto '=https' \
+        --tlsv1.2 \
+        https://astral.sh/uv/install.sh | bash
+
+      if [ "${{ inputs.uv-cache-path }}" = "NOT_SET" ]; then
+        echo "UV_CACHE_DIR=/tmp/scu-uv-cache" >>$GITHUB_ENV
+      else
+        echo "UV_CACHE_DIR=${{ inputs.uv-cache-path }}" >>$GITHUB_ENV
+      fi
     shell: bash
     if: runner.os != 'Windows'
 
   - name: Install uv on Windows
-    run: irm https://astral.sh/uv/install.ps1 | iex
+    run: |
+      irm https://astral.sh/uv/install.ps1 | iex
+
+      if ($X -eq "NOT_SET") {
+        echo "UV_CACHE_DIR=D:\a\_temp\scu-uv-cache" >> $env:GITHUB_ENV
+      } else {
+        echo "UV_CACHE_DIR=${{ inputs.uv-cache-path }}" >> $env:GITHUB_ENV
+      }
+
     shell: pwsh
     if: runner.os == 'Windows'
-
-  - name: Set uv cache directory to ${{  inputs.uv-cache-path }}
-    run: echo "UV_CACHE_DIR=${{ inputs.uv-cache-path }}" >>$GITHUB_ENV
-    shell: bash
 
   - name: Compute cache key suffix by hashing ${{ inputs.cache-dependency-path }}
     run: >

@@ -68,7 +68,7 @@ You may want to set this to `""` if you already use `cache-dependency-path` to i
 #### `uv-cache-path`
 
 The path to *uv*’s cache.
-Due to path restrictions, it’s impossible to cache the default path, so we moved it to a path beneath `/tmp`.
+Due to path restrictions, it’s impossible to cache the default path, so we moved it to a path beneath `/tmp` for Linux/macOS and `D:\a\_temp` on Windows.
 You can change it to elsewhere using this input, but make sure that [*actions/cache*](https://github.com/actions/cache) can find it.
 
 
