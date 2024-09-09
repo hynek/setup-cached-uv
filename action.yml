@@ -39,7 +39,7 @@ runs:
   - name: Install uv on Linux or macOS
     run: |
       if [ "${{ inputs.uv-cache-path }}" = "NOT_SET" ]; then
-        UV_CACHE_DIR=/tmp/scu-uv-cache"
+        UV_CACHE_DIR="/tmp/scu-uv-cache"
       else
         UV_CACHE_DIR="${{ inputs.uv-cache-path }}"
       fi
