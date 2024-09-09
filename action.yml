@@ -45,7 +45,7 @@ runs:
       fi
 
       echo "UV_CACHE_DIR=\"$UV_CACHE_DIR\"" >>$GITHUB_ENV
-      echo "uv's cache dir is $UV_CACHE_DIR"
+      echo "uv cache dir is $UV_CACHE_DIR"
 
       curl \
         --location \
@@ -67,7 +67,7 @@ runs:
       }
 
       echo "UV_CACHE_DIR=${{ inputs.uv-cache-path }}" >> $env:GITHUB_ENV
-      Write-Output "uv's cache dir is $UV_CACHE_DIR"
+      Write-Output "uv cache dir is $UV_CACHE_DIR"
 
       irm https://astral.sh/uv/install.ps1 | iex
     shell: pwsh
