@@ -20,7 +20,7 @@ inputs:
   cache-dependency-path:
     description: Hash this file and use it as part of the cache key.
     required: false
-    default: ""
+    default: "pyproject.toml"
 
   use-cache-if:
     description: Save the cache.
