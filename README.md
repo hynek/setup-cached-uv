@@ -1,4 +1,4 @@
-# Setup *uv* and Handle Its Cache
+#  Setup *uv* and Handle Its Cache
 
 > [!NOTE]
 > Note that there's now an official [*astral-sh/setup-uv*](https://github.com/astral-sh/setup-uv) action.
@@ -49,7 +49,7 @@ Internally, the GitHub Actions function [`hashFiles`](https://docs.github.com/en
 Using this with a fully pinned [`uv.lock`](https://docs.astral.sh/uv/concepts/projects/) or `requirements.txt` file is the most efficient use of this action because it automatically invalidates the cache when your dependencies or their versions change.
 
 You may want to set `cache-date-suffix` to `""` if you use this input with an all-encompassing lockfile.
-The default is `pyproject.toml` which invalidates the cache whenever a modern Python packages changes its packaging metadata.
+The default is `pyproject.toml` which invalidates the cache whenever a modern Python package changes its packaging metadata.
 
 
 #### `cache-suffix`
