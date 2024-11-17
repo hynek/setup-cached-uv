@@ -2,6 +2,8 @@
 
 > [!NOTE]
 > Note that there's now an official [*astral-sh/setup-uv*](https://github.com/astral-sh/setup-uv) action.
+>
+> As far as we can tell, the cache-handling of this action is currently more straight-forward, though.
 
 This action will download and install the latest version of [*uv*](https://github.com/astral-sh/uv) using the official installer and handle its package cache for you.
 
