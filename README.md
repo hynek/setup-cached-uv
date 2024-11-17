@@ -31,8 +31,10 @@ jobs:
 To work around this, *setup-cached-uv* gives you several ways to invalidate the cache by adding suffixes to the cache key.
 This way you can have multiple caches per workflow that contain different sets of packages and have them expire periodically, even if in constant use.
 
-By default, the operating system of the runner, the name of the workflow, the job name, and the current calendar week are automatically added to the cache key.
-Meaning, without adding suffixes yourself, the cache keys look something like `uv-Linux-CI-tests-30`, `uv-macOS-CI-tests-30`, and `uv-Windows-CI-tests-30`.
+By default, the operating system of the runner, the name of the workflow, the job name, the hash of `pyproject.toml`, and the current calendar week are automatically added to the cache key.
+Meaning, without adding suffixes yourself, the cache keys look something like `uv-Linux-CI-tests-353c57572883b1d60a6434334a19edf10ed7c51947d8235b0a2b9fb77d3bf949-46`.
+
+This means that by default, each job on each operating system has an own cache that expires once per week or whenever `pyproject.toml` changes.
 
 To keep the caches small, this action automatically runs `uv cache prune --ci` before saving the cache.
 This keeps the files that have been downloaded, but removes any temporary files that are not needed for the cache to work, and that will only slow cache operations down.
