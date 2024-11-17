@@ -46,7 +46,8 @@ Internally, the GitHub Actions function [`hashFiles`](https://docs.github.com/en
 
 Using this with a fully pinned [`uv.lock`](https://docs.astral.sh/uv/concepts/projects/) or `requirements.txt` file is the most efficient use of this action because it automatically invalidates the cache when your dependencies or their versions change.
 
-You may want to set `cache-date-suffix` to `""` if you use this input.
+You may want to set `cache-date-suffix` to `""` if you use this input with an all-encompassing lockfile.
+The default is `pyproject.toml` which invalidates the cache whenever a modern Python packages changes its packaging metadata.
 
 
 #### `cache-suffix`
@@ -62,7 +63,7 @@ If not empty, it’s interpreted as an argument to [`date`](https://man7.org/lin
 The default is `+%V` which is the calendar week number.
 This means that the cache is refreshed weekly.
 
-You may want to set this to `""` if you already use `cache-dependency-path` to invalidate the cache.
+You may want to set this to `""` if `cache-dependency-path` is enough to invalidate the cache (in other words: it's pointing to a complete lockfile).
 
 
 #### `uv-cache-path`

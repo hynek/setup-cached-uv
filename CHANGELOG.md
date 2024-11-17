@@ -7,13 +7,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased](https://github.com/hynek/setup-cached-uv/compare/v2.2.1...main)
 
+### Changed
+
+- The default value for `cache-dependency-path` is now `pyproject.toml`.
+  This means that changes to packaging metadata of modern Python packages will invalidate the cache.
+  [#19](https://github.com/hynek/setup-cached-uv/pull/19)
+
 
 ## [2.2.1](https://github.com/hynek/setup-cached-uv/compare/v2.2.0...v2.2.1)
 
 ### Fixed
 
 - Quoting around cache dir handling.
-  [#18](https://github.com/hynek/setup-cached-uv/pull/16)
+  [#18](https://github.com/hynek/setup-cached-uv/pull/18)
 
 
 ## [2.2.0](https://github.com/hynek/setup-cached-uv/compare/v2.1.0...v2.2.0)
