@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased](https://github.com/hynek/setup-cached-uv/compare/v2.3.0...main)
 
+### Changed
+
+- All actions are pinned to their exact hashes.
+
 
 ## [2.3.0](https://github.com/hynek/setup-cached-uv/compare/v2.2.1...v2.3.0)
 
@@ -82,7 +86,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Option to conditionally disable caching by setting `if-use-cache` to anything else than `'true'`.
 
-  *uv* is increadibly fast at installing wheels, while GitHub Actions's caching is rather slow.
+  *uv* is incredibly fast at installing wheels, while GitHub Actions's caching is rather slow.
   But it's still faster than building missing wheels for exotic platforms (say, PyPy).
 
   This option allows you activate caching only when it's helpful.
