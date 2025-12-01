@@ -99,7 +99,7 @@ runs:
       key: uv-${{ runner.os }}-${{ github.workflow }}-${{ github.job }}${{ inputs.cache-suffix }}${{ env.HASH_CACHE_SUFFIX }}${{ env.DATE_CACHE_SUFFIX }}
 
   - name: Schedule cache pruning
-    uses: gacts/run-and-post-run@d803f6920adc9a47eeac4cb6c93dbc2e2890c684
+    uses: gacts/run-and-post-run@81b6ce503cde93862cec047c54652e45c5dca991
     if: inputs.use-cache-if == 'true'
     with:
       post: uv cache prune --ci
