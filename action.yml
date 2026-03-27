@@ -81,10 +81,10 @@ runs:
 
   - name: Compute cache key suffix by hashing ${{ inputs.cache-dependency-path }}
     env:
-      SCU_SUFFIX: ${{ hashFiles(inputs.cache-dependency-path) }}"
+      SCU_SUFFIX: ${{ hashFiles(inputs.cache-dependency-path) }}
     run: >  # zizmor: ignore[github-env] -- hashFiles output is unlikely to be executable
       echo
-      "HASH_CACHE_SUFFIX=-${SUFFIX}
+      "HASH_CACHE_SUFFIX=-${SUFFIX}"
       >>$GITHUB_ENV
     shell: bash
     if: inputs.cache-dependency-path != '' && inputs.use-cache-if == 'true'
