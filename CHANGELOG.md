@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased](https://github.com/hynek/setup-cached-uv/compare/v2.4.0...main)
 
+### Fixed
+
+- The action now passes Zizmor in pedantic mode.
+  [#28](https://github.com/hynek/setup-cached-uv/pull/28)
+
 
 ## [2.4.0](https://github.com/hynek/setup-cached-uv/compare/v2.3.0...v2.4.0)
 
