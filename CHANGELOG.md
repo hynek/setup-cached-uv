@@ -13,14 +13,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
   [#28](https://github.com/hynek/setup-cached-uv/pull/28)
 
 
-## [2.4.0](https://github.com/hynek/setup-cached-uv/compare/v2.3.0...v2.4.0)
+## [2.4.0](https://github.com/hynek/setup-cached-uv/compare/v2.3.0...v2.4.0) - 2026-03-19
 
 ### Changed
 
 - All actions are pinned to their exact hashes.
 
 
-## [2.3.0](https://github.com/hynek/setup-cached-uv/compare/v2.2.1...v2.3.0)
+## [2.3.0](https://github.com/hynek/setup-cached-uv/compare/v2.2.1...v2.3.0) - 2024-11-17
 
 ### Changed
 
@@ -29,7 +29,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
   [#19](https://github.com/hynek/setup-cached-uv/pull/19)
 
 
-## [2.2.1](https://github.com/hynek/setup-cached-uv/compare/v2.2.0...v2.2.1)
+## [2.2.1](https://github.com/hynek/setup-cached-uv/compare/v2.2.0...v2.2.1) - 2024-09-09
 
 ### Fixed
 
@@ -37,7 +37,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
   [#18](https://github.com/hynek/setup-cached-uv/pull/18)
 
 
-## [2.2.0](https://github.com/hynek/setup-cached-uv/compare/v2.1.0...v2.2.0)
+## [2.2.0](https://github.com/hynek/setup-cached-uv/compare/v2.1.0...v2.2.0) - 2024-09-09
 
 ### Changed
 
