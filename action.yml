@@ -84,7 +84,7 @@ runs:
       SCU_SUFFIX: ${{ hashFiles(inputs.cache-dependency-path) }}
     run: >  # zizmor: ignore[github-env] -- hashFiles output is unlikely to be executable
       echo
-      "HASH_CACHE_SUFFIX=-${SUFFIX}"
+      "HASH_CACHE_SUFFIX=-${SCU_SUFFIX}"
       >>$GITHUB_ENV
     shell: bash
     if: inputs.cache-dependency-path != '' && inputs.use-cache-if == 'true'
