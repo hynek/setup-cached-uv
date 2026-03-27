@@ -37,11 +37,11 @@ runs:
 
   steps:
   - name: Install uv on Linux or macOS
-    run: |
-      if [ "${{ inputs.uv-cache-path }}" = "NOT_SET" ]; then
+    run: |  # zizmor: ignore[github-env] -- need to set the variable
+      if [ "${SCU_INPUTS_UV_CACHE_PATH}" = "NOT_SET" ]; then
         UV_CACHE_DIR="/tmp/scu-uv-cache"
       else
-        UV_CACHE_DIR="${{ inputs.uv-cache-path }}"
+        UV_CACHE_DIR="${SCU_INPUTS_UV_CACHE_PATH}"
       fi
 
       echo "UV_CACHE_DIR=$UV_CACHE_DIR" >>$GITHUB_ENV
@@ -56,13 +56,15 @@ runs:
         https://astral.sh/uv/install.sh | bash
     shell: bash
     if: runner.os != 'Windows'
+    env:
+      SCU_INPUTS_UV_CACHE_PATH: ${{ inputs.uv-cache-path }}
 
   - name: Install uv on Windows
-    run: |
-      if ("${{ inputs.uv-cache-path }}" -eq "NOT_SET") {
+    run: |  # zizmor: ignore[github-env] -- need to set the variable
+      if ("$env:SCU_INPUTS_UV_CACHE_PATH" -eq "NOT_SET") {
         $UV_CACHE_DIR = "D:\a\_temp\scu-uv-cache"
       } else {
-        $UV_CACHE_DIR = "${{ inputs.uv-cache-path }}"
+        $UV_CACHE_DIR = "$env:SCU_INPUTS_UV_CACHE_PATH"
       }
 
       echo "UV_CACHE_DIR=$UV_CACHE_DIR" >> $env:GITHUB_ENV
@@ -70,26 +72,32 @@ runs:
       irm https://astral.sh/uv/install.ps1 | iex
     shell: pwsh
     if: runner.os == 'Windows'
+    env:
+      SCU_INPUTS_UV_CACHE_PATH: ${{ inputs.uv-cache-path }}
 
   - name: Check cache dir
     shell: bash
     run: echo "uv cache dir is $(uv cache dir)"
 
   - name: Compute cache key suffix by hashing ${{ inputs.cache-dependency-path }}
-    run: >
+    env:
+      SCU_SUFFIX: ${{ hashFiles(inputs.cache-dependency-path) }}
+    run: >  # zizmor: ignore[github-env] -- hashFiles output is unlikely to be executable
       echo
-      "HASH_CACHE_SUFFIX=-${{ hashFiles(inputs.cache-dependency-path) }}"
+      "HASH_CACHE_SUFFIX=-${SCU_SUFFIX}"
       >>$GITHUB_ENV
     shell: bash
     if: inputs.cache-dependency-path != '' && inputs.use-cache-if == 'true'
 
   - name: Compute date-based cache key suffix
-    run: >
+    run: >  # zizmor: ignore[github-env] -- date output is unlikely to be executable
       echo
-      "DATE_CACHE_SUFFIX=-$(date ${{ inputs.cache-date-suffix }})"
+      "DATE_CACHE_SUFFIX=-$(date ${SCU_INPUTS_CACHE_DATE_SUFFIX})"
       >>$GITHUB_ENV
     shell: bash
     if: inputs.cache-date-suffix != '' && inputs.use-cache-if == 'true'
+    env:
+      SCU_INPUTS_CACHE_DATE_SUFFIX: ${{ inputs.cache-date-suffix }}
 
   - name: Load uv cache
     uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
