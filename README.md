@@ -1,5 +1,7 @@
 #  Setup *uv* and Handle Its Cache
 
+[![zizmor](https://img.shields.io/badge/%F0%9F%8C%88-zizmor-white?labelColor=white)](https://zizmor.sh/)
+
 > [!NOTE]
 > Note that there's now an official [*astral-sh/setup-uv*](https://github.com/astral-sh/setup-uv) action.
 >
