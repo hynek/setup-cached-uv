@@ -27,6 +27,11 @@ inputs:
     required: false
     default: "true"
 
+  prune-cache:
+    description: Run `uv cache prune --ci` before the cache is saved.
+    required: false
+    default: "false"
+
   uv-cache-path:
     description: Where to put uv's cache directory.
     required: false
@@ -108,6 +113,6 @@ runs:
 
   - name: Schedule cache pruning
     uses: gacts/run-and-post-run@598d7a875d5620e0457490555b5e18e46082aa47 # v1.4.4
-    if: inputs.use-cache-if == 'true'
+    if: inputs.use-cache-if == 'true' && inputs.prune-cache == 'true'
     with:
       post: uv cache prune --ci

@@ -7,6 +7,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased](https://github.com/hynek/setup-cached-uv/compare/v2.5.0...main)
 
+### Added
+
+- New `prune-cache` input that controls whether `uv cache prune --ci` is run before the cache is saved.
+
+
+### Changed
+
+- Cache pruning is now **opt-in**.
+  Set `prune-cache` to `true` to get the previous behavior.
+  See [this research](https://github.com/astral-sh/setup-uv/pull/967) conducted by Charlie Marsh for the reasoning.
+
 
 ## [2.5.0](https://github.com/hynek/setup-cached-uv/compare/v2.4.0...v2.5.0) - 2026-03-27
 

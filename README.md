@@ -38,9 +38,6 @@ Meaning, without adding suffixes yourself, the cache keys look something like `u
 
 This means that by default, each job on each operating system has an own cache that expires once per week or whenever `pyproject.toml` changes.
 
-To keep the caches small, this action automatically runs `uv cache prune --ci` before saving the cache.
-This keeps the files that have been downloaded, but removes any temporary files that are not needed for the cache to work, and that will only slow cache operations down.
-
 
 ### Optional Inputs
 
@@ -73,6 +70,13 @@ This means that the cache is refreshed weekly.
 You may want to set this to `""` if `cache-dependency-path` is enough to invalidate the cache (in other words: it's pointing to a complete lockfile).
 
 
+#### `prune-cache`
+
+If set to `true`, `uv cache prune --ci` is run after your job, before the cache is saved.
+
+The default is `false` due to [this research](https://github.com/astral-sh/setup-uv/pull/967) conducted by Charlie Marsh.
+
+
 #### `uv-cache-path`
 
 The path to *uv*’s cache.
@@ -80,7 +84,7 @@ Due to path restrictions, it’s impossible to cache the default path, so we mov
 You can change it to elsewhere using this input, but make sure that [*actions/cache*](https://github.com/actions/cache) can find it.
 
 
-#### `if-use-cache`
+#### `use-cache-if`
 
 This defaults to `true`, but can be used to disable the cache, since GitHub’s default caching speed can be slower than an uncached *uv*.
 For example, if you have dependencies that don’t provide prebuilt PyPy wheels, you can only cache that run like this:
@@ -89,7 +93,7 @@ For example, if you have dependencies that don’t provide prebuilt PyPy wheels,
       # ...
       - uses: hynek/setup-cached-uv@v2
         with:
-          if-use-cache: ${{ startsWith(matrix.python-version, 'pypy') }}
+          use-cache-if: ${{ startsWith(matrix.python-version, 'pypy') }}
       # ...
 ```
 
