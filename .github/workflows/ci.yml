@@ -30,7 +30,7 @@ jobs:
           path: action
           persist-credentials: false
 
-      - uses: $/action
+      - uses: ./action
         with:
           cache-date-suffix: ""
 
@@ -52,7 +52,7 @@ jobs:
           path: action
           persist-credentials: false
 
-      - uses: $/action
+      - uses: ./action
         with:
           cache-suffix: -LE-SUFFIX
           cache-dependency-path: "**/LICENSE"
